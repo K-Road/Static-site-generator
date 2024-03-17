@@ -9,6 +9,7 @@ from textnode import (
     text_type_link,
     text_type_image,
 )
+from htmlnode import LeafNode
 
 class TestTextNode(unittest.TestCase):
     def test_eq(self):
