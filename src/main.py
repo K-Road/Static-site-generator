@@ -1,6 +1,6 @@
-from textnode import TextNode
+from textnode import TextNode, text_type_text
 from htmlnode import HTMLNode, LeafNode, ParentNode
-from inline_markdown import extract_markdown_images, extract_markdown_links
+from inline_markdown import extract_markdown_images, extract_markdown_links, split_nodes_image, text_to_textnodes
 
 def main():
     # tnode = TextNode("This is a text node", "bold", "https://www.boot.dev")
@@ -24,10 +24,17 @@ def main():
     # )
     # print(node.to_html())
 
-    text = "This is text with an ![image](https://i.imgur.com/zjjcJKZ.png) and ![another](https://i.imgur.com/dfsdkjfd.png)"
-    print(extract_markdown_images(text))
+    # text = "This is text with an ![image](https://i.imgur.com/zjjcJKZ.png) and ![another](https://i.imgur.com/dfsdkjfd.png)"
+    # print(extract_markdown_images(text))
 
-    text = "This is text with a [link](https://www.example.com) and [another](https://www.example.com/another)"
-    print(extract_markdown_links(text))
+    # text = "This is text with a [link](https://www.example.com) and [another](https://www.example.com/another)"
+    # print(extract_markdown_links(text))
+    # node = TextNode(
+    #     "This is text with an ![image](https://i.imgur.com/zjjcJKZ.png) and another ![second image](https://i.imgur.com/3elNhQu.png)",
+    #     text_type_text,
+    # )
+    # print(split_nodes_image([node]))
+    text = "This is **text** with an *italic* word and a `code block` and an ![image](https://i.imgur.com/zjjcJKZ.png) and a [link](https://boot.dev)"
+    print(text_to_textnodes(text))
 
 main()
