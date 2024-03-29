@@ -32,10 +32,10 @@ def generate_page(from_path, template_path, dest_path):
     from_html = markdown_to_html_node(from_md).to_html()
     title = extract_title(from_md)
 
-    new_html = template_md("{{ Title }}",title)
-    new_html = new_html("{{ Contents }}",from_html)
+    new_html = template_md.replace("{{ Title }}",title)
+    new_html = new_html.replace("{{ Content }}",from_html)
 
-    
+
     with open(dest_path,"w") as file:
         file.write(new_html)
     
