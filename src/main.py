@@ -1,6 +1,7 @@
 from textnode import TextNode, text_type_text
 from htmlnode import HTMLNode, LeafNode, ParentNode
 from inline_markdown import extract_markdown_images, extract_markdown_links, split_nodes_image, text_to_textnodes
+from block_markdown import block_to_block_type
 
 def main():
     # tnode = TextNode("This is a text node", "bold", "https://www.boot.dev")
@@ -34,7 +35,16 @@ def main():
     #     text_type_text,
     # )
     # print(split_nodes_image([node]))
-    text = "This is **text** with an *italic* word and a `code block` and an ![image](https://i.imgur.com/zjjcJKZ.png) and a [link](https://boot.dev)"
-    print(text_to_textnodes(text))
+    # text = "This is **text** with an *italic* word and a `code block` and an ![image](https://i.imgur.com/zjjcJKZ.png) and a [link](https://boot.dev)"
+    # print(text_to_textnodes(text))
+    
+    md = """1. This is **bolded** paragraph
+2.
+3. This is another paragraph with *italic* text and `code` here
+4. This is the same paragraph on a new line
+5. 
+6. This is a list
+7. with items"""
+    print(block_to_block_type(md))
 
 main()
